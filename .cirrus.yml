@@ -38,7 +38,7 @@ task:
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/HyconOS/manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
-      - git clone --depth=1  https://github.com/Zooxv/device_xiaomi_juice -b eleven device/xiaomi/juice
+      - git clone --depth=1 https://github.com/Zooxv/android_device_xiaomi_juice -b eleven device/xiaomi/juice
       - git clone --depth=1 https://github.com/Zooxv/vendor_xiaomi_citrus  --single-branch -b r11 vendor/xiaomi/juice
       - git clone --depth=1 https://github.com/kdrag0n/proton-clang -b master prebuilts/clang/host/linux-x86/clang-proton
       - git clone --depth=1 https://github.com/Zooxv/Xiaomi-Fury-Bengal-SD662 --single-branch -b CitrusMoonInline kernel/xiaomi/juice
