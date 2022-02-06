@@ -20,7 +20,7 @@ task:
        - git config --global user.name "I-n-o-k"
        - git config --global user.email "cirrus.dr189@gmail.com"
        - mkdir -p /tmp/ccache
-       - rclone copy cirrus:Hycon/ccache.tar.gz /tmp -P
+       - rclone copy cirrus:Arrow/ccache.tar.gz /tmp -P
        - cd /tmp
        - time tar xf ccache.tar.gz
        - cd /tmp
@@ -35,7 +35,7 @@ task:
       - echo "Syncing The Sources..."
       - echo "============================"
       - cd /tmp/rom
-      - repo init -q --no-repo-verify --depth=1 -u https://github.com/HyconOS/manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
+      - repo init -q --no-repo-verify --depth=1 -u https://github.com/ArrowOS/android_manifest.git -b eleven -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
       - git clone --depth=1 https://github.com/Zooxv/device_xiaomi_juice -b eleven device/xiaomi/juice
@@ -63,7 +63,7 @@ task:
 #      - rclone copy /tmp/rom/out/target/product/juice/*.zip cirrus:juice -P
       - ./ziping.sh
       - cd /tmp
-      - rclone copy ccache.tar.gz cirrus:Hycon -P
+      - rclone copy ccache.tar.gz cirrus:Arrow -P
       - echo " "
       - echo "============================"
       - echo "Build Uploaded Successfully!"
