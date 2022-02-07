@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /tmp/rom
+cd /~/rom
 
 . build/envsetup.sh
 lunch superior_juice-userdebug
