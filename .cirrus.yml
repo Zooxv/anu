@@ -23,11 +23,11 @@ task:
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
        - git config --global user.name "I-n-o-k"
        - git config --global user.email "inok.dr189@gmail.com"
-       - mkdir -p /tmp/ccache
-       - rclone copy inok:supri/ccache.tar.gz /tmp -P
-       - cd /tmp
+       - mkdir -p /~/ccache
+       - rclone copy inok:supri/ccache.tar.gz /~ -P
+       - cd /~
        - time tar xf ccache.tar.gz
-       - cd /tmp
+       - cd /~
   
   Storage-Checker_background_script:
       - df -h
@@ -39,13 +39,14 @@ task:
       - echo "Syncing The Sources..."
       - echo "============================"
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Start sync Source"
-      - cd /tmp/rom
+      - cd /~/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
-      - git clone --depth=1 https://github.com/I-n-o-k/device_xiaomi_juice -b superior device/xiaomi/juice
-      - git clone --depth=1 https://gitlab.com/I-n-o-k/vendor-lime --single-branch -b 11 vendor/xiaomi/juice
-      - git clone --depth=1 https://github.com/I-n-o-k/android_kernel_xiaomi_bengal --single-branch -b 11.0 kernel/xiaomi/juice
+      - git clone --depth=1 https://github.com/Zooxv/device_xiaomi_juice -b superior device/xiaomi/juice
+      - git clone --depth=1 https://github.com/Zooxv/vendor_xiaomi_citrus  --single-branch -b r11 vendor/xiaomi/juice
+      - git clone --depth=1 https://github.com/Zooxv/proton-clang -b master prebuilts/clang/host/linux-x86/clang-proton
+      - git clone --depth=1 https://github.com/Zooxv/Xiaomi-Fury-Bengal-SD662 --single-branch -b CitrusMoonInline kernel/xiaomi/juice
       # HALS
       - rm -rf hardware/qcom-caf/sm8250/audio
       - rm -rf hardware/qcom-caf/sm8250/display
