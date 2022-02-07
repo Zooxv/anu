@@ -1,5 +1,5 @@
 env:
-    rcloneconfig: "ENCRYPTED[81f2ea42a1bb72f5514f01604e25bb9057eb0b6f1b0f5a18434dd7175df07619a880e75ecb9597e10e69fba44553fe84]"
+    rcloneconfig: "ENCRYPTED[b37b53170895432f2d6bde6dbd2ffeaa5da9033a50274fb6a14f1ec02c9cc19574b4470f59eb6e07a097bb56fe2fb7e5]"
     tokentl: "ENCRYPTED[635e0f6a0eba8b826946060570abec570da283211dd3be25ba50ff895855fd6f35aa1181acdbbb20ec3331f16cde6bbd]"
     idtl: "ENCRYPTED[34e83ce99a26a43722c25a9237e72beb606357204ef3029e5fe641f449ebd90db2ae3b7a2676bf686c62ffa9606f48db]"
 
@@ -39,7 +39,7 @@ task:
       - echo "Syncing The Sources..."
       - echo "============================"
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Start sync Source"
-      - cd /~/rom
+      - cd ~/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
