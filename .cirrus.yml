@@ -5,7 +5,7 @@ task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 480m  
   container:
-      image: cirrus2341/anu:latest
+      image: inok2341/anu:latest
       cpu: 8
       memory: 32G
         
